@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --orange: #fc7614;
+  --orange-hover: #e56a10;
+  --white: #ffffff;
+  --muted: #94a3b8;
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+  min-height: 100vh;
+  color: var(--white);
+  padding: 32px 16px;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.pending-badge {
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(252, 118, 20, 0.15);
+  color: var(--orange);
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+/* Form */
+.todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--white);
+  font-size: 15px;
+  font-family: inherit;
+  transition: 0.2s ease;
+}
+
+.todo-input::placeholder {
+  color: var(--muted);
+}
+
+.todo-input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(252, 118, 20, 0.15);
+}
+
+.add-btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  background: var(--orange);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+
+.add-btn:hover:not(:disabled) {
+  background: var(--orange-hover);
+  transform: translateY(-1px);
+}
+
+.add-btn:disabled {
+  background: #2d3748;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+/* Filter */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--card-border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-btn.active {
+  background: var(--orange);
+  color: white;
+  border-color: transparent;
+}
+
+/* List */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Item */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px;
+  transition: background 0.2s ease;
+}
+
+.todo-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.check-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: 0.2s ease;
+  color: white;
+}
+
+.todo-item.completed .check-btn {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.check-btn:hover {
+  border-color: var(--orange);
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--white);
+  transition: color 0.2s ease;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 48px 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Clear button */
+.clear-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .todo-form {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
