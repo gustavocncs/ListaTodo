@@ -1,7 +1,7 @@
 ## Lista de Tarefas
 Aplicação de lista de tarefas com filtros, animações e persistência de dados.
 
-🔗 Acesse a demo
+[🔗 Acesse a demo](https://lista-todo-six.vercel.app/)
 
 ## Funcionalidades
 Adicionar, concluir e excluir tarefas
